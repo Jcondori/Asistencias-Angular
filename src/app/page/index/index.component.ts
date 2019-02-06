@@ -1,6 +1,7 @@
 import {Component, OnInit, ɵConsole} from '@angular/core';
 import {AlternanciaService} from '../../service/alternancia.service';
 import {AsistenciaService} from '../../service/asistencia.service';
+import {Alternancia} from '../../model/alternancia.model';
 
 
 @Component({
@@ -10,7 +11,7 @@ import {AsistenciaService} from '../../service/asistencia.service';
 })
 export class IndexComponent implements OnInit {
 
-  alternancia: any = [];
+  alternancia: Alternancia;
 
   constructor(private alternanciaService: AlternanciaService, private asistenciaService: AsistenciaService) {
     this.getcodaltdet();
