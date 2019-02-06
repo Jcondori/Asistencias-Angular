@@ -1,6 +1,6 @@
 import { Component, OnInit, ɵConsole } from '@angular/core';
 import { AlternanciaService } from '../../service/alternancia.service';
-import { AlternanciaDetale } from '../../model/alternanciaDetale..model';
+import { AsistenciaService } from '../../service/asistencia.service';
 
 
 @Component({
@@ -12,7 +12,7 @@ export class IndexComponent implements OnInit {
 
   alternancia: any = [];
 
-  constructor(private alternanciaService: AlternanciaService) {
+  constructor(private alternanciaService: AlternanciaService,private asistenciaService: AsistenciaService) {
     this.getcodaltdet();
   }
 
@@ -23,6 +23,7 @@ export class IndexComponent implements OnInit {
     this.alternanciaService.traerCodigoAltdet().subscribe(data => {
       this.alternancia =  data;
       console.log(this.alternancia);
+      this.asistenciaService.asistencia(this.alternancia.codaltdet).subscribe(asistencia => console.log(asistencia));
     }
       );
   }
