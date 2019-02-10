@@ -9,4 +9,5 @@ export class Alternancia {
   alumno: any;
   monitor: any;
   responsable: any;
+
 }
