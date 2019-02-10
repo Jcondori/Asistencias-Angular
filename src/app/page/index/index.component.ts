@@ -12,6 +12,7 @@ import {Alternancia} from '../../model/alternancia.model';
 export class IndexComponent implements OnInit {
 
   alternancia: Alternancia;
+  asistencias: any = [];
 
   constructor(private alternanciaService: AlternanciaService, private asistenciaService: AsistenciaService) {
     this.getcodaltdet();
@@ -26,7 +27,8 @@ export class IndexComponent implements OnInit {
         console.log(this.alternancia);
 
         this.asistenciaService.asistencia(this.alternancia.codaltdet).subscribe(asistencia => {
-          console.log(asistencia);
+          this.asistencias = JSON.parse(JSON.stringify(asistencia));
+          console.log(this.asistencias);
         });
 
       }
